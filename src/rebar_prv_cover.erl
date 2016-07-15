@@ -324,7 +324,7 @@ app_dirs(Apps) ->
     lists:foldl(fun app_ebin_dirs/2, [], Apps).
 
 app_ebin_dirs(App, Acc) ->
-    [rebar_app_info:ebin_dir(App)|Acc].
+    [rebar_app_info:ebin_dir(App), rebar_app_info:test_dir(App)|Acc].
 
 filter_checkouts(Apps) -> filter_checkouts(Apps, []).
 
