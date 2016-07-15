@@ -82,7 +82,7 @@ maybe_show_warning(State) ->
 
 refresh_paths(RState) ->
     ToRefresh = (rebar_state:code_paths(RState, all_deps)
-                 ++ [filename:join([rebar_app_info:out_dir(App), "test"])
+                 ++ [rebar_app_info:test_dir(App)
                      || App <- rebar_state:project_apps(RState)]
                 %% make sure to never reload self; halt()s the VM
                 ) -- [filename:dirname(code:which(?MODULE))],
